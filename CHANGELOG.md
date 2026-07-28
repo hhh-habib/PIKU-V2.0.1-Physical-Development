@@ -17,6 +17,6 @@ This changelog records physical-development and research-documentation milestone
 ## Earlier platform direction
 
 - **PIKU V1:** foundational mobile robotics and obstacle-avoidance experiments
-- **PIKU V2:** ESP32 connectivity and environmental-monitoring integration
+- **PIKU V2.0:** first major ESP32-connected stage with environmental-monitoring integration
 
 Planned V2.1 and V3 research directions are documented separately and are not included as completed changes.

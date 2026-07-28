@@ -30,6 +30,21 @@ PIKU provides a practical loop for studying how computation and communication in
 
 V2.0.1 is the tested present platform. Edge AI, compass-assisted navigation, encoder feedback, odometry, mapping, Raspberry Pi-class computing, ROS 2, and multi-robot coordination remain planned research directions. See the [CPS research vision](docs/CPS_RESEARCH_VISION.md).
 
+## Position in the PIKU Development Roadmap
+
+PIKU is being developed through staged physical and software revisions rather than as a single finished robot. Each version validates another part of the long-term research platform. PIKU V2.0.1 represents the current mature ESP32 prototype, integrating mobility, sensing, embedded computation, networking, human supervision, safety feedback, and physical actuation within one cyber-physical loop.
+
+| Stage | Status | Role in the research program |
+|---|---|---|
+| PIKU V1 | Earlier platform | Arduino-based foundational mobile robotics, basic obstacle avoidance, and Bluetooth/manual control. |
+| [PIKU V2.0](https://github.com/hhh-habib/PIKU-V2.0-Physical-Development) | Earlier implemented stage | First major ESP32-connected platform with environmental sensing, local web supervision, manual/autonomous operation, onboard display, and servo-directed ultrasonic inspection. |
+| **PIKU V2.0.1** | **Implemented in this repository** | Expanded and refined prototype with additional hazard sensing, improved autonomous behavior, manual LEFT/FRONT/RIGHT ultrasonic inspection, direction-aware proximity alarms, advanced dashboard supervision, direct robot Wi-Fi, Home Wi-Fi operation, and greater overall system maturity. |
+| PIKU V2.1 | Planned | ESP32-S3 experimentation, initial Edge AI studies, improved perception, additional navigation sensing, and richer mission intelligence. |
+| PIKU V3 | Planned | Raspberry Pi-class computing, ROS 2, localization, mapping, advanced autonomy, and research-grade cyber-physical systems coordination. |
+
+> Earlier, later, and planned capabilities are clearly separated. Future
+> capabilities are not presented as implemented in PIKU V2.0.1.
+
 ## System overview
 
 | Layer | Implemented in V2.0.1 |

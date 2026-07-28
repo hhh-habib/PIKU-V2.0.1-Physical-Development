@@ -33,7 +33,7 @@ The direct SoftAP and local-router options add a communication layer without req
 - Basic mobile robotics
 - Obstacle-avoidance experiments
 
-### PIKU V2 — connected environmental monitoring
+### PIKU V2.0 — first major ESP32-connected stage
 
 - ESP32 connectivity
 - Environmental sensing
