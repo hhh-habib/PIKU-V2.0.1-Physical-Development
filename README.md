@@ -158,13 +158,15 @@ Firmware source is maintained separately in a private repository and may be made
 
 No firmware source, firmware binaries, PlatformIO project files, credentials, or private dashboard source assets are included here.
 
-## Researcher information
+## Researcher Information
 
 **Md Habibur Rahman Habib**  
+EEE Undergraduate Student  
 Research Assistant  
-First Author and Chief Robotics Engineer
+Project Lead and Lead Developer — PIKU Robotics Platform
 
-This work forms part of continuing robotics and cyber-physical systems research.
+This work forms part of continuing research in robotics, embedded systems,
+intelligent monitoring, and cyber-physical systems.
 
 ## Responsible-use and safety note
 

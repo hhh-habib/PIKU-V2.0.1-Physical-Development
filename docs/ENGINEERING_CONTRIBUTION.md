@@ -70,5 +70,9 @@ The researcher does not claim invention of the ESP32, L298N, HC-SR04, DHT22, MQ-
 ## Researcher
 
 **Md Habibur Rahman Habib**  
+EEE Undergraduate Student  
 Research Assistant  
-First Author and Chief Robotics Engineer
+Project Lead and Lead Developer — PIKU Robotics Platform
+
+This work forms part of continuing research in robotics, embedded systems,
+intelligent monitoring, and cyber-physical systems.
