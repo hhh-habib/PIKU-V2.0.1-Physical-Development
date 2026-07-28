@@ -1,0 +1,53 @@
+# Repository and editor state
+.git/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# PlatformIO, firmware projects, and private source
+.pio/
+platformio.ini
+src/
+include/
+lib/
+data/
+firmware/
+private/
+*.ino
+*.cpp
+*.c
+*.h
+*.hpp
+
+# Build outputs and archives
+backup/
+backups/
+*.zip
+*.bin
+*.elf
+*.hex
+*.map
+*.log
+
+# Secrets and local configuration
+.env
+.env.*
+*.pem
+*.key
+credentials.*
+secrets.*
+
+# Working notes and temporary content
+private-notes/
+working-notes/
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Operating-system caches
+Thumbs.db
+Desktop.ini
+.DS_Store

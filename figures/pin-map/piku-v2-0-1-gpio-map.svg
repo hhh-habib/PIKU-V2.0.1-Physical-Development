@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">PIKU V2.0.1 verified ESP32 GPIO map</title>
+  <desc id="desc">Verified pin assignments for the TFT, motor direction, servo, ultrasonic sensor, environmental sensors, buzzer, and future motor-enable PWM reservations.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7fafc; }
+      .title { fill: #102a43; font: 700 46px Arial, sans-serif; }
+      .subtitle { fill: #486581; font: 24px Arial, sans-serif; }
+      .panel { fill: #ffffff; stroke: #bcccdc; stroke-width: 3; }
+      .panel-title { fill: #102a43; font: 700 28px Arial, sans-serif; }
+      .row { fill: #243b53; font: 22px Arial, sans-serif; }
+      .pin { fill: #0b69a3; font: 700 22px Arial, sans-serif; }
+      .reserved { fill: #9c4221; font: 700 21px Arial, sans-serif; }
+      .note-box { fill: #fffaf0; stroke: #d69e2e; stroke-width: 3; }
+      .note-title { fill: #744210; font: 700 24px Arial, sans-serif; }
+      .note { fill: #744210; font: 20px Arial, sans-serif; }
+      .rule { stroke: #d9e2ec; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1600" height="1000"/>
+  <text class="title" x="800" y="70" text-anchor="middle">PIKU V2.0.1 — VERIFIED ESP32 GPIO MAP</text>
+  <text class="subtitle" x="800" y="110" text-anchor="middle">Transcribed from project pin evidence; no firmware source included</text>
+
+  <rect class="panel" x="70" y="155" width="700" height="350" rx="18"/>
+  <text class="panel-title" x="105" y="200">MOBILITY &amp; DIRECTIONAL INSPECTION</text>
+  <line class="rule" x1="100" y1="220" x2="740" y2="220"/>
+  <text class="row" x="110" y="265">Right motor IN1</text><text class="pin" x="700" y="265" text-anchor="end">GPIO 26</text>
+  <text class="row" x="110" y="310">Right motor IN2</text><text class="pin" x="700" y="310" text-anchor="end">GPIO 27</text>
+  <text class="row" x="110" y="355">Left motor IN1</text><text class="pin" x="700" y="355" text-anchor="end">GPIO 16</text>
+  <text class="row" x="110" y="400">Left motor IN2</text><text class="pin" x="700" y="400" text-anchor="end">GPIO 17</text>
+  <text class="row" x="110" y="445">Servo control</text><text class="pin" x="700" y="445" text-anchor="end">GPIO 13</text>
+  <text class="row" x="110" y="490">HC-SR04 TRIG / ECHO</text><text class="pin" x="700" y="490" text-anchor="end">GPIO 32 / 34</text>
+
+  <rect class="panel" x="830" y="155" width="700" height="350" rx="18"/>
+  <text class="panel-title" x="865" y="200">SENSING &amp; ALARM</text>
+  <line class="rule" x1="860" y1="220" x2="1500" y2="220"/>
+  <text class="row" x="870" y="275">DHT22 data</text><text class="pin" x="1460" y="275" text-anchor="end">GPIO 21</text>
+  <text class="row" x="870" y="325">MQ-2 analog output</text><text class="pin" x="1460" y="325" text-anchor="end">GPIO 35</text>
+  <text class="row" x="870" y="375">Flame digital output</text><text class="pin" x="1460" y="375" text-anchor="end">GPIO 36</text>
+  <text class="row" x="870" y="425">Front IR digital output</text><text class="pin" x="1460" y="425" text-anchor="end">GPIO 39</text>
+  <text class="row" x="870" y="475">Active buzzer control</text><text class="pin" x="1460" y="475" text-anchor="end">GPIO 33</text>
+
+  <rect class="panel" x="70" y="545" width="700" height="300" rx="18"/>
+  <text class="panel-title" x="105" y="590">ST7789 TFT (SPI)</text>
+  <line class="rule" x1="100" y1="610" x2="740" y2="610"/>
+  <text class="row" x="110" y="655">Chip select (CS)</text><text class="pin" x="700" y="655" text-anchor="end">GPIO 5</text>
+  <text class="row" x="110" y="700">Data/command (DC)</text><text class="pin" x="700" y="700" text-anchor="end">GPIO 22</text>
+  <text class="row" x="110" y="745">Reset (RST)</text><text class="pin" x="700" y="745" text-anchor="end">GPIO 4</text>
+  <text class="row" x="110" y="790">Clock (SCK) / MOSI</text><text class="pin" x="700" y="790" text-anchor="end">GPIO 18 / 23</text>
+  <text class="row" x="110" y="830">MISO</text><text class="pin" x="700" y="830" text-anchor="end">Not used</text>
+
+  <rect class="panel" x="830" y="545" width="700" height="300" rx="18"/>
+  <text class="panel-title" x="865" y="590">FUTURE PWM RESERVATIONS</text>
+  <line class="rule" x1="860" y1="610" x2="1500" y2="610"/>
+  <text class="row" x="870" y="670">Right enable reservation</text><text class="reserved" x="1460" y="670" text-anchor="end">GPIO 25</text>
+  <text class="row" x="870" y="725">Left enable reservation</text><text class="reserved" x="1460" y="725" text-anchor="end">GPIO 14</text>
+  <text class="reserved" x="870" y="780">V2.0.1 status: L298N ENA/ENB jumpers installed</text>
+  <text class="row" x="870" y="820">No active PWM speed regulation in this version</text>
+
+  <rect class="note-box" x="190" y="885" width="1220" height="80" rx="14"/>
+  <text class="note-title" x="800" y="918" text-anchor="middle">Electrical caution</text>
+  <text class="note" x="800" y="948" text-anchor="middle">ESP32 GPIO is not 5 V tolerant. Protect HC-SR04 ECHO and verify all sensor output levels.</text>
+</svg>
