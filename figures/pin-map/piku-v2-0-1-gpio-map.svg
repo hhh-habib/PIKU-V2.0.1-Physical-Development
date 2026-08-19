@@ -20,7 +20,7 @@
 
   <rect class="bg" width="1600" height="1000"/>
   <text class="title" x="800" y="70" text-anchor="middle">PIKU V2.0.1 — VERIFIED ESP32 GPIO MAP</text>
-  <text class="subtitle" x="800" y="110" text-anchor="middle">Transcribed from project pin evidence; no firmware source included</text>
+  <text class="subtitle" x="800" y="110" text-anchor="middle">Cross-checked with final firmware baseline dd2e951; no firmware source included</text>
 
   <rect class="panel" x="70" y="155" width="700" height="350" rx="18"/>
   <text class="panel-title" x="105" y="200">MOBILITY &amp; DIRECTIONAL INSPECTION</text>

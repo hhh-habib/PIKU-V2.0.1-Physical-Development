@@ -20,6 +20,8 @@
 - No camera-based perception
 - No onboard Edge AI in V2.0.1
 - Directional sensing depends on servo position and the field of view of the installed sensors
+- The 300 cm radar is a visualization scale, not a certified detection range; valid values above 300 cm are plotted at the outer boundary
+- Ordinary open-space/no-return/out-of-range is intentionally non-blocking and does not prove ultrasonic-path health
 
 ### Environmental sensing
 
@@ -31,6 +33,8 @@
 
 - Prototype wiring and mechanical structure are not industrialized
 - No documented environmental sealing or ingress rating
+- HC-SR04 divider ratio/output voltage and MQ-2 analog conditioning were not electrically characterized in the preserved record
+- Charger/protection behavior, balancing, current margin, fusing, conductor ratings, and rail behavior under load are not fully documented
 - Wi-Fi range depends on layout, interference, client, and router
 - Battery runtime depends on battery condition, load, regulator efficiency, motion, and radio use
 - The documented endurance result is one approximately 30-minute integrated session, not a reliability specification
@@ -57,7 +61,8 @@ Future revisions may introduce calibrated PWM control, encoder-based odometry, h
 - Raspberry Pi-class computing
 - Remote fleet monitoring and networked CPS experiments
 - Stronger mechanical enclosure and wiring harnesses
-- Defined safety states for network or sensor failure
+- Stronger authenticated network-failure handling and documented recovery states
+- Stronger ultrasonic diagnostic discrimination without confusing ordinary out-of-range operation with nearby-obstacle evidence
 
 ## Validation priorities
 

@@ -2,11 +2,11 @@
 
 ## Architecture basis
 
-This description is limited to the current PIKU V2.0.1 evidence: physical photographs, the power/system connection diagram, the verified GPIO source image, and documented prototype behavior. It does not reproduce firmware implementation.
+This description is limited to the current PIKU V2.0.1 evidence: physical photographs, the power/system connection diagram, the verified GPIO source image, documented prototype behavior, and a documentation-only cross-check against final private firmware baseline `dd2e951089d6e18f8c0b49de785144f646876d81`. It does not reproduce firmware implementation.
 
 ![Verified PIKU V2.0.1 GPIO map](../figures/pin-map/piku-v2-0-1-gpio-map.svg)
 
-*Figure 1. Documentation-only GPIO map transcribed from the verified pin evidence. GPIO 25 and GPIO 14 are reserved for future motor-enable PWM; the present motor-driver enable jumpers remain installed.*
+*Figure 1. Documentation-only GPIO map transcribed from the verified pin evidence and cross-checked against final firmware baseline `dd2e951089d6e18f8c0b49de785144f646876d81`. GPIO 25 and GPIO 14 are reserved for future motor-enable PWM; the present motor-driver enable jumpers remain installed.*
 
 ## Controller
 
@@ -17,13 +17,13 @@ An ESP32 DevKit V1 is the primary embedded controller. It coordinates motor dire
 The documented prototype uses:
 
 - a 3S 18650 battery arrangement (11.1 V nominal and 12.6 V when fully charged);
-- a charging/protection module appropriate to the documented 3S arrangement;
+- documented prototype charging/protection hardware associated with the 3S arrangement, without a preserved characterization of its exact charging, balancing, protection, or current-rating behavior;
 - a main power switch;
 - a switched battery rail for the L298N motor driver;
 - an LM2596 buck converter adjusted to a regulated 5.0 V electronics bus; and
 - a common ground between power, controller, driver, sensors, display, servo, and buzzer.
 
-The circuit diagram is prototype documentation. Battery configuration, charger compatibility, polarity, regulator output, conductor capacity, and each module's actual voltage requirement must be independently verified before connection.
+The circuit diagram is an engineering/system overview rather than a replication-ready schematic. Battery configuration and condition, charger compatibility, balancing/protection functions, polarity, regulator output under load, fusing, conductor capacity, connector ratings, and each module's actual voltage requirement must be independently verified before connection.
 
 ![Power and system connection diagram](../figures/circuit/piku-v2-0-1-power-system-diagram.jpeg)
 
@@ -39,7 +39,7 @@ GPIO 25 and GPIO 14 are reserved for future right/left enable PWM respectively; 
 
 - **HC-SR04:** directional ultrasonic ranging on a servo-mounted head
 - **DHT22:** temperature and humidity
-- **MQ-2:** analog gas/smoke response to an ESP32 ADC input
+- **MQ-2:** prototype analog gas/smoke signal path to the GPIO 35 ADC input; exact installed conditioning/divider details and voltage behavior are not fully documented
 - **Flame sensor:** digital hazard indication
 - **Front IR sensor:** digital near-obstacle indication
 
@@ -48,6 +48,8 @@ The MQ-2 requires warm-up and environment-specific calibration. Analog and digit
 ## Servo-mounted ultrasonic mechanism
 
 An SG90 servo changes the direction of the HC-SR04 sensing head. The documented system uses the mechanism for automatic scanning and manual LEFT / FRONT / RIGHT inspection. The resulting direction and distance state is represented on the dashboard radar and contributes to proximity warning behavior.
+
+The final dashboard visualization uses a 300 cm outer range with 75 / 150 / 225 / 300 cm rings. Valid readings above 300 cm may remain numerically reported while plotting is capped at the display boundary. Ordinary open-space/no-return/out-of-range results are intentionally non-blocking; sampling continues, and positive nearby ultrasonic or IR evidence remains the trigger for the existing obstacle response. This operating policy is not a claim of fail-safe behavior or ultrasonic-path health.
 
 ## Display and alarm output
 
@@ -90,8 +92,8 @@ The architecture does not claim cloud control. Wireless range is dependent on th
 ## Electrical cautions
 
 - ESP32 GPIO is not 5 V tolerant.
-- The HC-SR04 ECHO signal requires correct level protection before GPIO 34.
-- Verify that MQ-2 AO never exceeds the ADC input range.
+- The prototype documentation records HC-SR04 ECHO level protection before GPIO 34. The exact installed divider ratio and output voltage were not electrically characterized in the preserved test record.
+- GPIO 35 receives the prototype MQ-2 analog signal path. Exact installed conditioning is not fully documented; verify that the input never exceeds the ESP32 ADC range.
 - Check flame/IR module output levels and add level shifting where required.
 - Keep all grounds common as documented.
 - Verify power wiring separately from signal wiring.

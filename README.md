@@ -64,7 +64,7 @@ PIKU is being developed through staged physical and software revisions rather th
 
 ## Physical architecture
 
-The 3S 18650 power system feeds the motor branch and an LM2596-regulated 5 V electronics branch. The ESP32 coordinates motor-direction signals, sensor acquisition, ultrasonic-head position, display output, buzzer behavior, and local networking. Grounds are common, while appropriate level protection is required for any signal that can exceed ESP32 GPIO limits.
+The documented prototype uses a 3S 18650 arrangement feeding the motor branch and an LM2596-regulated 5 V electronics branch. The ESP32 coordinates motor-direction signals, sensor acquisition, ultrasonic-head position, display output, buzzer behavior, and local networking. Grounds are common, while appropriate level protection is required for any signal that can exceed ESP32 GPIO limits. The power figure is a system overview; exact charger/protection functions, balancing, ratings, fusing, wiring capacity, and battery condition were not electrically characterized in the preserved record.
 
 ![PIKU V2.0.1 power and system connection diagram](figures/circuit/piku-v2-0-1-power-system-diagram.jpeg)
 
@@ -79,7 +79,7 @@ The current evidence supports the following V2.0.1 hardware:
 - ESP32 DevKit V1
 - four-wheel mobile chassis and four DC gear motors
 - L298N dual H-bridge motor driver
-- 3S 18650 battery arrangement with charging/protection hardware
+- 3S 18650 battery arrangement with documented prototype charging/protection hardware; exact module behavior and ratings are not fully characterized
 - LM2596 buck regulation
 - HC-SR04 ultrasonic sensor and SG90 servo
 - DHT22 temperature/humidity sensor
@@ -101,11 +101,13 @@ Manual mode provides forward, reverse, left, right, and stop commands through th
 
 ## Ultrasonic radar and focused inspection
 
-The HC-SR04 is mounted on a servo so the sensing direction can change without rotating the entire chassis. The documented interface supports live radar visualization and deliberate LEFT / FRONT / RIGHT inspection. Direction-aware proximity feedback connects physical sensor orientation to the operator interface and warning behavior.
+The HC-SR04 is mounted on a servo so the sensing direction can change without rotating the entire chassis. The final interface supports deliberate LEFT / FRONT / RIGHT inspection with corrected robot-relative orientation and a **300 cm** radar plot using 75 / 150 / 225 / 300 cm rings. Valid readings above 300 cm may remain numerically visible while their graphical position is capped at the 300 cm display boundary.
+
+The ultrasonic channel is primarily used for nearby obstacle awareness and directional inspection. A valid nearby obstacle causes the existing navigation/safety response. Long valid readings are treated as clear space for obstacle detection, and an ordinary open-space, no-return, or out-of-range result is intentionally non-blocking. HC-SR04 and front IR sampling continue, so a subsequent nearby obstacle can still be detected and handled. This permissive prototype policy is not a fail-safe or safety-certification claim.
 
 ![Dashboard control and live ultrasonic radar](figures/dashboard/dashboard-control-radar.jpeg)
 
-*Figure 4. Mobile dashboard control area with movement commands and live directional radar visualization during a critical alarm state.*
+*Figure 4. Historical/pre-final dashboard control capture. It documents the earlier movement-control and radar interface but is not evidence of the final 300 cm radar scale. No authentic final 300 cm screenshot was available in the preserved local archive; the final scale is supported by the final firmware baseline and reported corrective physical validation.*
 
 ## Communication architecture
 
@@ -134,7 +136,7 @@ The available screenshots document four interface areas:
   <img src="figures/dashboard/dashboard-system-connectivity.jpeg" width="23%" alt="Dashboard system and connectivity">
 </p>
 
-*Figure 5. The four documented mobile-dashboard areas. Displayed sensor values are observations from the captured prototype state, not calibrated specifications.*
+*Figure 5. The four documented mobile-dashboard areas from the earlier integrated-test era. The control/radar capture is historical/pre-final; displayed sensor values are observations from captured prototype states, not calibrated specifications.*
 
 ## Engineering contribution
 
@@ -142,13 +144,19 @@ The main contribution is system-level engineering: embedded architecture, physic
 
 ## Physical testing and observed results
 
-The documented final integrated test session lasted approximately 30 minutes. Under the tested conditions, manual and autonomous movement, servo scanning, focused inspection, radar direction, environmental telemetry, directional alarms, buzzer, TFT, SoftAP access, and Home Wi-Fi access remained operational. This is described as an observed prototype result, not as a percentage success rate or a reliability certification.
+The public record separates three evidence epochs:
+
+1. An earlier approximately 30-minute integrated prototype session qualitatively exercised Manual and Auto movement, servo scanning, focused inspection, environmental telemetry, alarms, buzzer, TFT, SoftAP, Home Wi-Fi, and the dashboard.
+2. Later corrective software work and clean-build verification established the final documentation baseline but were not themselves physical tests.
+3. User-reported corrective physical validation after the ultrasonic/radar corrections observed PASS behavior for open-space/no-echo driving, Manual Forward, Auto operation, subsequent nearby-obstacle detection and response, the 300 cm radar, and LEFT / FRONT / RIGHT behavior, with no observed regression in normal prototype operation.
+
+The later testing also observed an HC-SR04 reading of approximately **341.5 cm**. This is an uncalibrated prototype observation, not a certified range or accuracy claim. All reported checks remain qualitative observations rather than a percentage success rate or reliability certification.
 
 See [Testing and Validation](docs/TESTING_AND_VALIDATION.md) for the evidence boundaries and cautious network-range observations.
 
 ## Design limitations
 
-PIKU V2.0.1 uses directional motor commands and timed/open-loop maneuvers. It has no PWM speed regulation in this version, rear obstacle sensor, encoders, compass, odometry, SLAM, camera perception, or onboard Edge AI. Its wiring and mechanical structure remain prototype-grade. The full limitation record is in [Limitations and Future Work](docs/LIMITATIONS_AND_FUTURE_WORK.md).
+PIKU V2.0.1 uses directional motor commands and timed/open-loop maneuvers. It has no PWM speed regulation in this version, rear obstacle sensor, encoders, compass, odometry, SLAM, camera perception, or onboard Edge AI. Ordinary ultrasonic no-return/out-of-range is intentionally permissive and must not be interpreted as proof that the sensing path is healthy. Its wiring and mechanical structure remain prototype-grade. The full limitation record is in [Limitations and Future Work](docs/LIMITATIONS_AND_FUTURE_WORK.md).
 
 ## Connection to long-term CPS research
 
@@ -169,7 +177,7 @@ The present platform establishes a physical/cyber feedback loop suitable for inc
 
 ## Firmware availability
 
-Firmware source is maintained separately in a private repository and may be made available for authorized academic or technical review.
+Firmware source is maintained separately in a private repository and may be made available for authorized academic or technical review. The final physical-documentation cross-reference is firmware baseline `dd2e951089d6e18f8c0b49de785144f646876d81`.
 
 No firmware source, firmware binaries, PlatformIO project files, credentials, or private dashboard source assets are included here.
 

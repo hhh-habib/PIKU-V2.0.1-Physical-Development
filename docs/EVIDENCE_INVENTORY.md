@@ -17,7 +17,7 @@ No source file was renamed, moved, edited, or deleted. Publication names below a
 | `PIKU_V2.0.1_Circuit_Diagram.jpeg` | Circuit/power-system diagram | Included as `figures/circuit/piku-v2-0-1-power-system-diagram.jpeg` |
 | `pin config.png` | GPIO/pin-map evidence with private source-repository UI | Original screenshot excluded; verified assignments transcribed into `figures/pin-map/piku-v2-0-1-gpio-map.svg` |
 | `dashboard page 1.jpeg` | Dashboard overview and observed alarm-state evidence | Included as `figures/dashboard/dashboard-overview.jpeg` |
-| `dashboard page 2.jpeg` | Dashboard control and radar evidence | Included as `figures/dashboard/dashboard-control-radar.jpeg` |
+| `dashboard page 2.jpeg` | Historical/pre-final dashboard control and radar evidence | Retained as `figures/dashboard/dashboard-control-radar.jpeg`; not evidence of the final 300 cm scale |
 | `dashboard page 3.jpeg` | Dashboard environmental-telemetry evidence | Included as `figures/dashboard/dashboard-environment.jpeg` |
 | `dashboard page 4.jpeg` | Dashboard system/connectivity evidence | Included as `figures/dashboard/dashboard-system-connectivity.jpeg` |
 
@@ -31,6 +31,20 @@ No source file was renamed, moved, edited, or deleted. Publication names below a
 - Color/luminance profile data was retained because it supports correct rendering and is not private.
 - Directly included images were copied byte-for-byte to preserve quality.
 
+## Current and historical figure status
+
+| Public figure group | Status | Use boundary |
+|---|---|---|
+| `figures/robot/` | CURRENT | Physical construction and component-placement evidence; hidden conductors remain unverified |
+| `figures/circuit/piku-v2-0-1-power-system-diagram.jpeg` | CURRENT SYSTEM OVERVIEW | Documents intended high-level power/signal topology; not replication-ready or electrically characterized |
+| `figures/pin-map/piku-v2-0-1-gpio-map.svg` | CURRENT | Cross-checked against final private firmware baseline `dd2e951089d6e18f8c0b49de785144f646876d81` |
+| `figures/dashboard/dashboard-overview.jpeg` | HISTORICAL / PRE-FINAL | Earlier integrated-test interface state |
+| `figures/dashboard/dashboard-control-radar.jpeg` | HISTORICAL / PRE-FINAL | Earlier radar interface; must not be used as proof of the final 300 cm plot |
+| `figures/dashboard/dashboard-environment.jpeg` | HISTORICAL / PRE-FINAL | Earlier environmental interface state |
+| `figures/dashboard/dashboard-system-connectivity.jpeg` | HISTORICAL / PRE-FINAL | Earlier connectivity interface state |
+
+No authentic final 300 cm dashboard/radar screenshot was found in the preserved local workspace. No replacement was fabricated. The final 300 cm scale, 75 / 150 / 225 / 300 cm rings, and numerical reporting above the capped plot boundary are supported by the final firmware baseline and reported corrective physical validation.
+
 ## Evidence boundaries
 
-The figures document construction, interface state, and available subsystem information. They do not establish calibrated accuracy, formal safety compliance, industrial reliability, or a statistical success rate. The test narrative is therefore reported as a documented prototype observation under tested conditions.
+The figures document construction, historical interface state, and available subsystem information. They do not establish calibrated accuracy, formal safety compliance, industrial reliability, or a statistical success rate. The test narrative is therefore reported as documented prototype observation under tested conditions. The approximately 341.5 cm reading is an observed, uncalibrated value rather than a range-accuracy claim.

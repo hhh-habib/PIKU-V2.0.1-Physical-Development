@@ -17,8 +17,9 @@ PIKU V2.0.1 is a supervised research prototype. This document highlights importa
 
 - ESP32 GPIO is not 5 V tolerant.
 - Use correct HC-SR04 ECHO level protection; the divider belongs on ECHO, not TRIG.
-- Confirm that MQ-2 **AO** is connected to the intended ADC path; do not confuse AO with **DO**.
-- Ensure MQ-2 AO remains within the ESP32 ADC input range.
+- The prototype documentation records level protection on the HC-SR04 ECHO path before GPIO 34. The exact installed divider ratio and output voltage were not electrically characterized in the preserved test record.
+- Confirm that MQ-2 **AO** is connected to the intended GPIO 35 ADC path; do not confuse AO with **DO**.
+- Exact installed MQ-2 analog conditioning is not fully documented. Measure and ensure that the GPIO 35 signal remains within the ESP32 ADC input range.
 - Verify flame and IR module output voltages before connecting them to GPIO.
 - Remember that GPIO 34, 35, 36, and 39 are input-only on the documented ESP32 arrangement.
 
@@ -50,6 +51,7 @@ This repository does not claim that any particular charging method is universall
 - Do not intentionally expose the prototype to dangerous gas, smoke, or open flame without an approved controlled laboratory procedure.
 - MQ-2 response depends on warm-up, calibration, cross-sensitivity, placement, airflow, temperature, and humidity.
 - Ultrasonic and IR sensing can be affected by object angle, surface, geometry, ambient conditions, and blind zones.
+- Ordinary ultrasonic open-space/no-return/out-of-range results are intentionally non-blocking in the final prototype policy. Continued sampling and a later positive nearby ultrasonic/IR observation can still trigger the existing response, but missing range must not be treated as proof that the sensor path is healthy.
 
 ## Operating responsibility
 
