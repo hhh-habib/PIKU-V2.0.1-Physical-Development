@@ -186,7 +186,7 @@ No firmware source, firmware binaries, PlatformIO project files, credentials, or
 **Md Habibur Rahman Habib**  
 EEE Undergraduate Student  
 Research Assistant  
-Project Lead and Lead Developer — PIKU Robotics Platform
+Project Lead and Lead Developer 
 
 This work forms part of continuing research in robotics, embedded systems,
 intelligent monitoring, and cyber-physical systems.
